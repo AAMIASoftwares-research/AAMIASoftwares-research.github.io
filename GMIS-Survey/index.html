@@ -1,3 +1,90 @@
-<h1>Generalist Models in Medical Image Segmentation: A Survey and Performance Comparison with Task-Specific Approaches</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMIS-Survey: AAMIA Softwares</title>
+    <link rel="stylesheet" href="style.css">
 
-<p>Here some nice text</p>
+    <script src="./sql.js-gh.pages/dist/sql-wasm.js"></script>
+</head>
+<body>
+    <h1>Data from SQLite Database</h1>
+    <h1>Generalist Models in Medical Image Segmentation: A Survey and Performance Comparison with Task-Specific Approaches</h1>
+    <p id=">Here some nice text</p>
+  
+    <p id="results">Click button here to let studff happen.</div>
+    <button id="loadAndQueryButton">Click here</button>button>
+    <script>
+      let db = null; // Variable to hold the database object
+
+      // Function to initialize the database
+      async function initializeDatabase() {
+          try {
+              // Configure where sql-wasm.wasm is located.
+              // Assuming it's in the same directory as this HTML file.
+              const SQL = await initSqlJs({
+                  locateFile: filename => `/${filename}`
+              });
+              console.log("sql.js initialized!");
+              // Fetch your SQLite database file
+              const dbFilePath = 'database.sqlite'; // Your database file name
+              const response = await fetch(dbFilePath);
+              if (!response.ok) {
+                  throw new Error(`Failed to fetch database file: ${response.statusText}`);
+              }
+              const buffer = await response.arrayBuffer();
+              db = new SQL.Database(new Uint8Array(buffer));
+              console.log("Database loaded!");
+              document.getElementById('results').textContent = "Database loaded successfully. Click the button again to query!";
+          } catch (error) {
+              console.error("Error initializing or loading database:", error);
+              document.getElementById('results').textContent = `Error: ${error.message}`;
+          }
+      }
+      
+      function queryDatabase() {
+            if (!db) {
+                document.getElementById('results').textContent = "Database not loaded yet. Please wait or check for errors.";
+                return;
+            }
+
+            try {
+                // Select first 5 rows from the 'models' table
+                const res = db.exec("SELECT * FROM models LIMIT 2");
+
+                console.log("Raw query result:", res);
+
+                const resultsElement = document.getElementById('results');
+
+                if (res.length > 0) {
+                    // Convert the result object to a nicely formatted JSON string
+                    // The third argument (2) indents the JSON for readability
+                    resultsElement.textContent = JSON.stringify(res, null, 2);
+                } else {
+                    resultsElement.textContent = "No data found or table 'models' is empty.";
+                }
+
+            } catch (error) {
+                console.error("Error executing query:", error);
+                document.getElementById('results').textContent = `Error querying database: ${error.message}`;
+            }
+        }
+
+        // Event listener for the button
+        document.getElementById('loadAndQueryButton').addEventListener('click', async () => {
+            // If DB is not loaded, load it first
+            if (!db) {
+                await initializeDatabase();
+            }
+            // Then, execute the query
+            queryDatabase();
+        });
+
+
+      
+    </script>
+</body>
+</html>
+
+

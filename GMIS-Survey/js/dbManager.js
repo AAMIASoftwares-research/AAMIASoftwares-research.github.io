@@ -1,6 +1,10 @@
 let db = null;
 
-async function initializeDatabase() {
+export async function initializeDatabase() {
+    if (db) {
+        console.log("Database already initialized.");
+        return; // Avoid re-initializing
+    }
     try {
         // Configure where sql-wasm.wasm is located.
         const SQL = await initSqlJs({

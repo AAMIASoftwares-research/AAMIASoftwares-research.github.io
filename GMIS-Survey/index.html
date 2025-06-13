@@ -24,7 +24,7 @@
               // Configure where sql-wasm.wasm is located.
               // Assuming it's in the same directory as this HTML file.
               const SQL = await initSqlJs({
-                  locateFile: filename => `/${filename}`
+                  locateFile: filename => `./sql.js-gh-pages/dist/${filename}`
               });
               console.log("sql.js initialized!");
               // Fetch your SQLite database file

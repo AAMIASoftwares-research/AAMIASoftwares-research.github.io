@@ -7,11 +7,8 @@ function queryDatabase() {
     const resultsElement = document.getElementById('results');
 
     try {
-        // CORRECTED: Use executeQuery imported from dbManager.js
-        const res = executeQuery("SELECT * FROM models LIMIT 2");
-
+        const res = executeQuery("SELECT * FROM models ORDER BY RANDOM() LIMIT 1");
         console.log("Raw query result:", res);
-
         if (res.length > 0) {
             resultsElement.textContent = JSON.stringify(res, null, 2);
         } else {

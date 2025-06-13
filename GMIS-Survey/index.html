@@ -16,34 +16,10 @@
     <p id="results">Click button here to let studff happen.</p>
     
     <button id="loadAndQueryButton">Click here</button>
-    <script>
-      let db = null; // Variable to hold the database object
 
-      // Function to initialize the database
-      async function initializeDatabase() {
-          try {
-              // Configure where sql-wasm.wasm is located.
-              // Assuming it's in the same directory as this HTML file.
-              const SQL = await initSqlJs({
-                  locateFile: filename => `./sql.js-gh-pages/dist/${filename}`
-              });
-              console.log("sql.js initialized!");
-              // Fetch your SQLite database file
-              const dbFilePath = 'database.sqlite'; // Your database file name
-              const response = await fetch(dbFilePath);
-              if (!response.ok) {
-                  throw new Error(`Failed to fetch database file: ${response.statusText}`);
-              }
-              const buffer = await response.arrayBuffer();
-              db = new SQL.Database(new Uint8Array(buffer));
-              console.log("Database loaded!");
-              document.getElementById('results').textContent = "Database loaded successfully. Click the button again to query!";
-          } catch (error) {
-              console.error("Error initializing or loading database:", error);
-              document.getElementById('results').textContent = `Error: ${error.message}`;
-          }
-      }
-      
+    <script src="./js/dbManager.js"></script>
+        
+    <script>
       function queryDatabase() {
             if (!db) {
                 document.getElementById('results').textContent = "Database not loaded yet. Please wait or check for errors.";
@@ -81,8 +57,6 @@
             // Then, execute the query
             queryDatabase();
         });
-
-
       
     </script>
 </body>

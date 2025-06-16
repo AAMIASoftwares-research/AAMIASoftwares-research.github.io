@@ -14,15 +14,15 @@ header {
     text-align: center;
 }
 header > h1 {
-    margin: 0;
+    margin: auto;
     padding: 0.5em;
     padding-top: 1.5em;
-    padding-bottom: 0.3em;
 }
 
 header > p#authors {
     margin: 0;
     padding: 0;
+    padding-top: 0.5em;
     font-size: 0.9em;
 }
 sup {
@@ -58,8 +58,63 @@ header > p#quote-e {
     text-align: right;
 }
 
+img.auth-ico-orcid {
+    height: 0.9em;
+    transition: 0.3s;
+}
+img.auth-ico-orcid:hover {
+    height: 1.1em;
+    margin-bottom: -0.1em;
+    transition: 0.3s;
+}
+img.auth-ico-scholar {
+    height: 1.0em;
+    transition: 0.3s;
+}
+img.auth-ico-scholar:hover {
+    height: 1.2em;
+    margin-bottom: -0.1em;
+    transition: 0.3s;
+}
+
 
 /* FOOTER */
+
+
+/* PUBLICATION BOXES */
+
+#publications-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+.publication-box {
+    width: 8cm;
+    max-width: 10cm;
+    min-width: 4cm;
+    flex-shrink: 0;
+    flex-grow: 1;
+
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgb(234 248 255);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+    box-sizing: border-box;
+}
+.publication-box#arxiv {
+    border: 3px solid #b31b1b;
+    background-color: rgb(250, 250, 250);
+}
+
+button.publication {
+    font-weight: 600;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+}
 
 
 

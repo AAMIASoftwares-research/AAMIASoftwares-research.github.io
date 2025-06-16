@@ -1,3 +1,71 @@
+/* DOC */
+
+body {
+    margin: 0;
+}
+
+/* HEADER */
+
+header {
+    background-color: rgb(252, 246, 237);
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1.5em;
+    text-align: center;
+}
+header > h1 {
+    margin: 0;
+    padding: 0.5em;
+    padding-top: 1.5em;
+    padding-bottom: 0.3em;
+}
+
+header > p#authors {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+}
+sup {
+    padding-left: 1.5px;
+}
+
+header > p#affil {
+    margin: 0;
+    margin-top: 0.3em;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+header > p#abstract {
+    width: 90%;
+    max-width: 17cm;
+    margin: auto;
+    text-align: justify;
+    font-style: italic;
+    color: rgb(73, 73, 73);
+}
+header > p#quote-s {
+    width: 90%;
+    max-width: 17cm;
+    margin: auto;
+    margin-top: 1.25em;
+    text-align: left;
+}
+header > p#quote-e {
+    width: 90%;
+    max-width: 17cm;
+    margin: auto;
+    text-align: right;
+}
+
+
+/* FOOTER */
+
+
+
+/* BODY */
+
+
 button {
     color: brown;
     background-color: white;

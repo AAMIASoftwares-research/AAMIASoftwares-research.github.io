@@ -11,7 +11,38 @@
     <script type="module" src="./js/app.js"></script>
 </head>
 <body>
-    <h1>Generalist Models in Medical Image Segmentation: A Survey and Performance Comparison with Task-Specific Approaches</h1>
+    <header>
+        <h1>
+            Generalist Models in Medical Image Segmentation:<br/>
+            A Survey and Performance Comparison with Task-Specific Approaches
+        </h1>
+
+        <p id="authors">
+            Andrea Moglia<sup>1&#10022;</sup>,
+            Matteo Leccardi<sup>1&#10022;</sup>,
+            Matteo Cavicchioli<sup>1</sup>,
+            Alice Maccarini<sup>2</sup>, <br/>
+            Marco Marcon<sup>1</sup>,
+            Luca Mainardi<sup>1</sup>,
+            Pietro Cerveri<sup>1,2</sup>
+        </p>
+        <p id="affil">
+            1: Politecnico di Milano, 2: Università di Pavia, &#10022;: Equally contributing authors
+        </p>
+
+        <p id="quote-s">&#10077;</p>
+        <p id="abstract">
+            Following the successful paradigm shift of large language models, leveraging pre-training on a massive corpus of data and fine-tuning on different downstream tasks, generalist models have made their foray into computer vision. 
+            The introduction of Segment Anything Model (SAM) set a milestone on segmentation of natural images, inspiring the design of a multitude of architectures for medical image segmentation. 
+            In this survey we offer a comprehensive and in-depth investigation on generalist models for medical image segmentation. 
+            We start with an introduction on the fundamentals concepts underpinning their development. 
+            Then, we provide a taxonomy on the different declinations of SAM in terms of zero-shot, few-shot, fine-tuning, adapters, on the recent SAM 2, on other innovative models trained on images alone, and others trained on both text and images. 
+            We thoroughly analyze their performances at the level of both primary research and best-in-literature, followed by a rigorous comparison with the state-of-the-art task-specific models. 
+            We emphasize the need to address challenges in terms of compliance with regulatory frameworks, privacy and security laws, budget, and trustworthy artificial intelligence (AI). 
+            Finally, we share our perspective on future directions concerning synthetic data, early fusion, lessons learnt from generalist models in natural language processing, agentic AI and physical AI, and clinical translation.
+        </p>
+        <p id="quote-e">&#10078;</p>
+    </header>
     
     <p>The website now is ugly, once the backend works, we'll make it pretty.</p>
 
@@ -21,33 +52,7 @@
     
     <button id="loadAndQueryButton">Click here</button>
 
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
-
-
-    <script>
-        const ctx = document.getElementById('myChart');
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-            },
-            options: {
-            scales: {
-                y: {
-                beginAtZero: true
-                }
-            }
-            }
-        });
-    </script>
+    
 
     
 </body>

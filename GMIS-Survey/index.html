@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GMIS-Survey: AAMIA Softwares</title>
     <link rel="icon" href="../assets/paper.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/index-header.css">
+    <link rel="stylesheet" href="./styles/index-publications.css">
+    <link rel="stylesheet" href="./styles/index-tabs_selector.css">
 
     <script src="./sql.js-gh-pages/dist/sql-wasm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -46,7 +49,6 @@
             1: Politecnico di Milano, 2: Università di Pavia, &#10022;: Equally contributing authors
         </p>
 
-        <p id="quote-s">&#10077;</p>
         <p id="abstract">
             Following the successful paradigm shift of large language models, leveraging pre-training on a massive corpus of data and fine-tuning on different downstream tasks, generalist models have made their foray into computer vision. 
             The introduction of Segment Anything Model (SAM) set a milestone on segmentation of natural images, inspiring the design of a multitude of architectures for medical image segmentation. 
@@ -57,7 +59,6 @@
             We emphasize the need to address challenges in terms of compliance with regulatory frameworks, privacy and security laws, budget, and trustworthy artificial intelligence (AI). 
             Finally, we share our perspective on future directions concerning synthetic data, early fusion, lessons learnt from generalist models in natural language processing, agentic AI and physical AI, and clinical translation.
         </p>
-        <p id="quote-e">&#10078;</p>
     </header>
     
 
@@ -65,7 +66,7 @@
         <div class="publication-box" id="arxiv">
             <h3>Preprint available on ArXiv</h3>
             <p>12 Jun 2025</p>
-            <p>DOI: https://doi.org/10.48550/arXiv.2506.10825</p>
+            <p>https://doi.org/10.48550/arXiv.2506.10825</p>
             <button class="publication" id="arxiv-bibtex-button">Copy Bibtex</button>
             <a href="https://doi.org/10.48550/arXiv.2506.10825" target="_blank">
                 <button class="publication">Open Publication</button>
@@ -73,12 +74,28 @@
         </div>
         <!-- Add more publications here following the above template -->
     </div>
+      <!-- Content that is invisible and position-indipendent-->
+    <div id="bibtex-container">
+        <div>
+            <p><button id="bibtex-close">&#10005;</button></p>
+            <textarea id="bibtex-textarea">
+            </textarea>
+        </div>
+    </div>
 
 
 
+    <div id="main-tabs">
+        <button id="main-models">Models</button>
+        <button id="main-datasets">Datasets</button>
+        <button id="main-results">Results</button>
+    </div>
+    <div id="main-container">
+
+    </div>
 
 
-    <a href="https://arxiv.org/abs/2506.10825">Check out the preprint here!</a>
+
   
     <p id="results">Click button here to let studff happen.</p>
     
@@ -110,7 +127,18 @@
 
     
 
-    
+
+
+
+
+
+
+
+
+
+
+
+  
 </body>
 </html>
 

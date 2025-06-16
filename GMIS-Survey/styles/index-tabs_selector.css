@@ -1,0 +1,48 @@
+/* TABS */
+
+#main-tabs {
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(215, 227, 240);
+}
+
+#main-tabs button {
+    position: relative;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(56, 56, 56);
+    outline: none;
+    transition: 0.3s;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+button#main-models {
+    margin-left: 20px;
+}
+
+#main-tabs button:hover:not(.active-tab) {
+    background-color: rgb(194, 208, 223);
+    color: #333;
+}
+
+#main-tabs button.active-tab {
+    background-color: #fff;
+}
+
+
+/* CONTAINER */
+
+div#main-container {
+    width: calc(100% - 20px - 20px);
+    min-height: 150px;
+    margin: auto;
+}
+
+div#main-container p {
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+}

@@ -1,0 +1,61 @@
+/* HEADER */
+
+header {
+    background-color: rgb(255, 235, 202);
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1.5em;
+    text-align: center;
+}
+header > h1 {
+    margin: auto;
+    padding: 0.5em;
+    padding-top: 1.5em;
+}
+
+header > p#authors {
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5em;
+    font-size: 0.9em;
+}
+sup {
+    padding-left: 1.5px;
+}
+
+header > p#affil {
+    margin: 0;
+    margin-top: 0.3em;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+header > p#abstract {
+    width: 90%;
+    max-width: 17cm;
+    margin: auto;
+    margin-top: 1.5em;
+    text-align: justify;
+    color: rgb(73, 73, 73);
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif !important;
+    font-size: 0.95em;
+}
+
+img.auth-ico-orcid {
+    height: 0.9em;
+    transition: 0.3s;
+}
+img.auth-ico-orcid:hover {
+    height: 1.1em;
+    margin-bottom: -0.1em;
+    transition: 0.3s;
+}
+img.auth-ico-scholar {
+    height: 1.0em;
+    transition: 0.3s;
+}
+img.auth-ico-scholar:hover {
+    height: 1.2em;
+    margin-bottom: -0.1em;
+    transition: 0.3s;
+}

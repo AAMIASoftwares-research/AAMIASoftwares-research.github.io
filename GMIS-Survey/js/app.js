@@ -1,7 +1,7 @@
-import { getElement } from './utils.js'
-
 import { initializeDatabase, executeQuery } from './dbManager.js';
-import { copyToClipboard } from './copyToClipboard.js';
+import { exportBibtexSetup } from './exportBibtexManager.js';
+
+import { tabsManagerSetup } from './tabsManager.js';
 
 
 
@@ -9,8 +9,7 @@ import { copyToClipboard } from './copyToClipboard.js';
 
 
 
-
-// old
+// old tests
 
 function queryDatabase() {
     // You don't need to check for 'db' directly here anymore.
@@ -61,9 +60,6 @@ document.getElementById('loadAndQueryButton').addEventListener('click', async ()
 
 
 
-
-
-
 //
 //
 // In here, UI elements and logic gets connected
@@ -71,66 +67,9 @@ document.getElementById('loadAndQueryButton').addEventListener('click', async ()
 //
 
 
-// Listener Setup for Publication-Specific Buttons
-const bibtextArxiv = `@misc{moglia2025generalistmodelsmedicalimage,\r\n\
-    title={\r\n\
-        Generalist Models in Medical Image Segmentation:\r\n\
-        A Survey and Performance Comparison with\r\n\
-        Task-Specific Approaches\r\n\
-    },\r\n\
-    author={
-        Andrea Moglia and Matteo Leccardi and Matteo\r\n\
-        Cavicchioli and Alice Maccarini and Marco Marcon\r\n\
-        and Luca Mainardi and Pietro Cerveri\r\n\
-    },\r\n\
-    year={2025},\r\n\
-    eprint={2506.10825},\r\n\
-    archivePrefix={arXiv},\r\n\
-    primaryClass={eess.IV},\r\n\
-    url={https://arxiv.org/abs/2506.10825},\r\n\
-}`;
-document.addEventListener('DOMContentLoaded', () => {
-    const copyButtonArxiv = getElement('arxiv-bibtex-button'); 
-    if (copyButtonArxiv) {
-        const originalTextArxiv = copyButtonArxiv.textContent;
-        copyButtonArxiv.addEventListener('click', () => {
-            copyToClipboard(copyButtonArxiv, bibtextArxiv, originalTextArxiv);
-        });
-    }
-});
-// Close bibtex dialogue
-document.addEventListener('DOMContentLoaded', () => {
-    const closeBibtexButton = getElement('bibtex-close');
-    const bibtextDialog = getElement('bibtex-container');
-    if (closeBibtexButton) {
-        closeBibtexButton.addEventListener('click', () => {
-            bibtextDialog.style.visibility = 'hidden';
-        });
-    }
-});
+// Citations export Manager
+exportBibtexSetup();
 
+// Tabs Manager
 
-// Set and unset active tab
-document.addEventListener('DOMContentLoaded', () => {
-    const tabButtons = document.querySelectorAll('#main-tabs button');
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active-tab');
-            });
-            button.classList.add('active-tab');
-        });
-    });
-});
-
-
-// Set event for each tab button
-document.addEventListener('DOMContentLoaded', () => {
-    const tabButtons = document.querySelectorAll('#main-tabs button');
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const contentContainer = getElement('main-container');
-            contentContainer.innerHTML = '<p>Clicked the ' + button.innerHTML + ' button. Content will be displayed here accordingly.';
-        });
-    });
-});
+tabsManagerSetup();

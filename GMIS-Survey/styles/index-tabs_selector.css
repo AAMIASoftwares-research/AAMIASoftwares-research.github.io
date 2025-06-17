@@ -3,7 +3,7 @@
 #main-tabs {
     display: flex;
     justify-content: flex-start;
-    background-color: rgb(215, 227, 240);
+    background-color: rgb(240 251 255);
 }
 
 #main-tabs button {

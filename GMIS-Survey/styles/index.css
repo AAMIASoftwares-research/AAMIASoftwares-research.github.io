@@ -1,12 +1,21 @@
-/* DOC */
+/* GLOBAL */
 
 body {
     margin: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
 
 
-/* BODY */
+p {
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+
+/* BODY */  /*/////////////////////////////////// TO REMOVE IN FUTURE */
 
 
 .styled-table {

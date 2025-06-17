@@ -1,6 +1,6 @@
 let db = null;
 
-export async function initializeDatabase() {
+async function initializeDatabase() {
     if (db) {
         console.log("Database already initialized.");
         return; // Avoid re-initializing
@@ -20,10 +20,16 @@ export async function initializeDatabase() {
         const buffer = await response.arrayBuffer();
         db = new SQL.Database(new Uint8Array(buffer));
         console.log("Database loaded!");
-        document.getElementById('results').textContent = "Database loaded successfully. Click the button again to query!";
     } catch (error) {
         console.error("Error initializing or loading database:", error);
-        document.getElementById('results').textContent = `Error: ${error.message}`;
+    }
+}
+
+export async function startDatabase() {
+    try {
+        await initializeDatabase();
+    } catch (error) {
+        console.error("Initialization failed:", error);
     }
 }
 

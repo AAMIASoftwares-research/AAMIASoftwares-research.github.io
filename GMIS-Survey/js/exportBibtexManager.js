@@ -30,7 +30,7 @@ async function copyToClipboard(button, textToCopy, originalButtonText) {
 
 
 
-const bibtextArxiv = `@misc{moglia2025generalistmodelsmedicalimage,\r\n\
+const bibtextArxiv = `@article{moglia2025generalistmodelsmedicalimage,\r\n\
     title={\r\n\
         Generalist Models in Medical Image Segmentation:\r\n\
         A Survey and Performance Comparison with\r\n\

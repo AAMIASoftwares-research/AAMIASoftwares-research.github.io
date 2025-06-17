@@ -13,6 +13,25 @@ p {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+div#main-container {
+    margin: auto;
+    margin-top: 30px;
+    padding: 0;
+}
+
+div.minipage-container {
+    margin: auto;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* BODY */  /*/////////////////////////////////// TO REMOVE IN FUTURE */

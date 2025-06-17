@@ -1,4 +1,6 @@
-export function formatTable(tableSQLdata, colorHeader, colorRowsDark, colorsRowLight) {
+
+
+export function resultsTableFormatter(resultsTableQueryAnswer, colorHeader, colorRowsDark, colorsRowLight) {
     let columns = tableSQLdata[0]["columns"];
     let values = tableSQLdata[0]["values"];
     

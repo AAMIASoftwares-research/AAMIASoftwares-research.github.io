@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GMIS-Survey: AAMIA Softwares</title>
     <link rel="icon" href="../assets/paper.png">
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/index-header.css">
-    <link rel="stylesheet" href="./styles/index-publications.css">
-    <link rel="stylesheet" href="./styles/index-tabs_selector.css">
+    <link rel="stylesheet" href="./styles/main.css">
 
     <script src="./sql.js-gh-pages/dist/sql-wasm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -56,7 +53,7 @@
         </p>
 
         <div id="graphical-abstract">
-            <img src="../assets/Graphical Abstract.svg">
+            <img src="../assets/fig2.svg">
         </div>
         
         <div id="abstract">
@@ -75,6 +72,61 @@
     </header>
     
 
+    
+    
+    
+    
+    
+    <div id="main-tabs">
+        <button id="main-models" class="active-tab">Models</button>
+        <button id="main-datasets">Datasets</button>
+        <button id="main-results">Results</button>
+    </div>
+
+
+
+
+    
+        
+
+    <div id="main-container">
+        <!-- 
+            This is th eocntainer of tables, graphs, and any other tab-related element.
+            All content is here, except tables that get built on the go.
+            This is necessary otherwise it does not work..
+        -->
+        <div id="empty-table">
+            <h3>Try again!</h3>
+            <p>Use another query combination</p>
+        </div>
+
+        <div class="minipage-container" id="results">
+            <p>Selection of interest:</p>
+            <div class="dropdown">
+                <button class="dropbtn" id="dropdown-dataset-organ-button">Choose...</button>
+                <div id="dropdown-dataset-organ-curtain" class="dropdown-content single">
+                    <button>Datasets</button>
+                    <button>Organs</button>
+                </div>
+            </div>
+            <p>Selection:</p>
+            <div class="dropdown">
+                <button class="dropbtn" id="dropdown-specific-dataset-organ-button">No selections available</button>
+                <div id="dropdown-specific-dataset-organ-curtain" class="dropdown-content single">
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
     <div id="publications-container">
         <div class="publication-box" id="arxiv">
             <h3>Preprint available on ArXiv</h3>
@@ -86,67 +138,15 @@
             </a>
         </div>
         <!-- Add more publications here following the above template (publication-box) -->
-    </div>
-      <!-- Content that is invisible and position-indipendent-->
-    <div id="bibtex-container">
+        </div>
+        <!-- Content that is invisible and position-indipendent-->
+        <div id="bibtex-container">
         <div>
             <p><button id="bibtex-close">&#10005;</button></p>
             <textarea id="bibtex-textarea">
             </textarea>
         </div>
     </div>
-
-
-
-    <div id="main-tabs">
-        <button id="main-models" class="active-tab">Models</button>
-        <button id="main-datasets">Datasets</button>
-        <button id="main-results">Results</button>
-    </div>
-    <!-- This is th eocntainer of tables, graphs, and any other tab-related element. It gets filled by dedicated js scripts. -->
-    <div id="main-container"></div>
-
-
-
-  
-    <p id="results">Click button here to let studff happen.</p>
-    
-    <button id="loadAndQueryButton">Click here</button>
-
-    <div>
-        <table class="styled-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Dom</td>
-                    <td>6000</td>
-                </tr>
-                <tr class="active-row">
-                    <td>Melissa</td>
-                    <td>5150</td>
-                </tr>
-                <!-- and so on... -->
-            </tbody>
-        </table>
-    </div>
-    
-
-
-    
-
-
-
-
-
-
-
-
-
 
 
 

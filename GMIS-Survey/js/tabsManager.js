@@ -1,5 +1,6 @@
 import { formatTable } from "./tablesFormatter.js";
 
+var lastClickedTabButton = ""
 
 export function tabsManagerSetup() {
     // Set and unset active tab
@@ -20,10 +21,19 @@ export function tabsManagerSetup() {
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const contentContainer = document.getElementById('main-container');
-                contentContainer.innerHTML = '<p>Clicked the ' + button.innerHTML + ' button. Content will be displayed here accordingly.';
-                if (button.innerHTML == 'Results') {
-                    contentContainer.innerHTML = contentContainer.innerHTML + formatTable();
-                } 
+                if (lastClickedTabButton != button.innerHTML) {
+                    // if different do something
+                    lastClickedTabButton = button.innerHTML;
+                    ////////////////////////////////////////////    placeholde rlogic
+                    // here you can do a case and call some specific functions to do everything.
+                    contentContainer.innerHTML = '<p>Clicked the ' + button.innerHTML + ' button. Content will be displayed here accordingly.';
+                    if (button.innerHTML == 'Results') {
+                        contentContainer.innerHTML = contentContainer.innerHTML + formatTable();
+                    } 
+                } else {
+                    // do nothing
+                    console.log("same button clicked:", lastClickedTabButton);
+                }                
             });
         });
     });

@@ -1,0 +1,9 @@
+div.minipage-container {
+    margin: auto;
+    padding: 0;
+}
+
+span.minipage-text {
+    margin-top: 1.1em; 
+    display: inline-block;
+}

@@ -86,7 +86,7 @@
 
 
 
-    
+
         
 
     <div id="main-container">
@@ -101,19 +101,89 @@
         </div>
 
         <div class="minipage-container" id="results">
-            <p>Selection of interest:</p>
+            <span class="minipage-text">Selection of interest:</span>
             <div class="dropdown">
-                <button class="dropbtn" id="dropdown-dataset-organ-button">Choose...</button>
+                <button class="dropbtn" id="dropdown-dataset-organ-button">
+                    <span class="dropbtn-text">Choose</span>
+                    <span class="dropbtn-arrow">&#9662;</span>
+                </button>
                 <div id="dropdown-dataset-organ-curtain" class="dropdown-content single">
-                    <button>Datasets</button>
+                    <div class="search-input hidden">
+                        <input type="text" name="" id="">
+                    </div>
                     <button>Organs</button>
+                    <button>Datasets</button>
+                    <button>Main Anatomical Structure</button>
+                    <button>Anatomical Region</button>
                 </div>
             </div>
-            <p>Selection:</p>
+
+            <span class="minipage-text">Selection:</span>
             <div class="dropdown">
-                <button class="dropbtn" id="dropdown-specific-dataset-organ-button">No selections available</button>
-                <div id="dropdown-specific-dataset-organ-curtain" class="dropdown-content single">
-                    
+                <button class="dropbtn" id="dropdown-specific-dataset-organ-button">
+                    <span class="dropbtn-text">No selections available</span>
+                    <span class="dropbtn-arrow">&#9662;</span>
+                    <span class="dropbtn-counter"></span>
+                </button>
+                <span class="dropbtn-clear-content" tabindex="0" role="button">&#10005;</span>
+                <div id="dropdown-specific-dataset-organ-curtain" class="dropdown-content multi">
+                    <div class="search-input">
+                        <input type="text" name="" id="">
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <span class="minipage-text">Filter results by:</span>
+            <div class="dropdown">
+                <button class="dropbtn" id="results-model-filter-framework">
+                    <span class="dropbtn-text">Framework</span>
+                    <span class="dropbtn-arrow">&#9662;</span>
+                    <span class="dropbtn-counter"></span>
+                </button>
+                <span class="dropbtn-clear-content" tabindex="0" role="button">&#10005;</span>
+                <div class="dropdown-content multi">
+                    <div class="search-input">
+                        <input type="text" name="" id="">
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" id="results-model-filter-architecture">
+                    <span class="dropbtn-text">Architecture</span>
+                    <span class="dropbtn-arrow">&#9662;</span>
+                    <span class="dropbtn-counter"></span>
+                </button>
+                <span class="dropbtn-clear-content" tabindex="0" role="button">&#10005;</span>
+                <div class="dropdown-content multi">
+                    <div class="search-input">
+                        <input type="text" name="" id="">
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" id="results-model-filter-visual-backbone">
+                    <span class="dropbtn-text">Visual Backbone</span>
+                    <span class="dropbtn-arrow">&#9662;</span>
+                    <span class="dropbtn-counter"></span>
+                </button>
+                <span class="dropbtn-clear-content" tabindex="0" role="button">&#10005;</span>
+                <div class="dropdown-content multi">
+                    <div class="search-input">
+                        <input type="text" name="" id="">
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" id="results-model-filter-release-date">
+                    <span class="dropbtn-text">Release Year</span>
+                    <span class="dropbtn-arrow">&#9662;</span>
+                    <span class="dropbtn-counter"></span>
+                </button>
+                <span class="dropbtn-clear-content" tabindex="0" role="button">&#10005;</span>
+                <div class="dropdown-content multi">
+                    <div class="search-input">
+                        <input type="text" name="" id="">
+                    </div>
                 </div>
             </div>
         </div>

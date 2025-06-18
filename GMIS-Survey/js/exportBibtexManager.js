@@ -53,26 +53,22 @@ const bibtexJournal = `Cit will go here`;
 
 export function exportBibtexSetup() {
     // ArXiv citation export
-    document.addEventListener('DOMContentLoaded', () => {
-        const copyButtonArxiv = document.getElementById('arxiv-bibtex-button'); 
-        if (copyButtonArxiv) {
-            const originalTextArxiv = copyButtonArxiv.textContent;
-            copyButtonArxiv.addEventListener('click', () => {
-                copyToClipboard(copyButtonArxiv, bibtextArxiv, originalTextArxiv);
-            });
-        }
-    });
+    const copyButtonArxiv = document.getElementById('arxiv-bibtex-button'); 
+    if (copyButtonArxiv) {
+        const originalTextArxiv = copyButtonArxiv.textContent;
+        copyButtonArxiv.addEventListener('click', () => {
+            copyToClipboard(copyButtonArxiv, bibtextArxiv, originalTextArxiv);
+        });
+    }
     // Journal citation export
     // 
     // Close bibtex dialogue
-    document.addEventListener('DOMContentLoaded', () => {
-        const closeBibtexButton = document.getElementById('bibtex-close');
-        const bibtextDialog = document.getElementById('bibtex-container');
-        if (closeBibtexButton) {
-            closeBibtexButton.addEventListener('click', () => {
-                bibtextDialog.style.visibility = 'hidden';
-            });
-        }
-    });
+    const closeBibtexButton = document.getElementById('bibtex-close');
+    const bibtextDialog = document.getElementById('bibtex-container');
+    if (closeBibtexButton) {
+        closeBibtexButton.addEventListener('click', () => {
+            bibtextDialog.style.visibility = 'hidden';
+        });
+    }
 }
 

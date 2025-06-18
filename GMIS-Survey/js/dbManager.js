@@ -53,3 +53,12 @@ export function closeDatabase() {
         console.log("Database closed.");
     }
 }
+
+
+// Some other utility functions
+
+export function getTableColumns(table) {
+    let answer = executeQuery(`SELECT * FROM ${table} LIMIT 1;`);
+    return answer[0]['columns'];
+}
+

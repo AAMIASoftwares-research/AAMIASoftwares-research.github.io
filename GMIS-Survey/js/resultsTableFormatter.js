@@ -1,8 +1,8 @@
 
 
 export function resultsTableFormatter(resultsTableQueryAnswer, colorHeader, colorRowsDark, colorsRowLight) {
-    let columns = tableSQLdata[0]["columns"];
-    let values = tableSQLdata[0]["values"];
+    let columns = resultsTableQueryAnswer[0]["columns"];
+    let values = resultsTableQueryAnswer[0]["values"];
     
     let out = '<table class="styled-table"><thead>';
     columns.forEach(c => {
@@ -17,6 +17,7 @@ export function resultsTableFormatter(resultsTableQueryAnswer, colorHeader, colo
         out += '</tr>';
     });
     out += '</tbody></table>';
+    out = out.replaceAll('null', ' ');
     return out;
 }
 

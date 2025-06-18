@@ -59,6 +59,26 @@ export function closeDatabase() {
 
 export function getTableColumns(table) {
     let answer = executeQuery(`SELECT * FROM ${table} LIMIT 1;`);
-    return answer[0]['columns'];
+    if (answer && answer.length > 0 && answer[0].columns) {
+        return answer[0].columns;
+    } else {
+        console.warn(`Could not retrieve columns for table: ${table}`);
+        return []; // Or return null, depending on your use case
+    }
 }
+
+export function getTableNames() {
+    let query = "SELECT name FROM sqlite_master WHERE type='table';";
+    let result = executeQuery(query);
+
+    if (result && result.length > 0 && result[0].values) {
+        // Extract table names from the 'values' array
+        return result[0].values.map(row => row[0]);
+    } else {
+        console.warn("Could not retrieve table names from the database.");
+        return [];
+    }
+}
+
+
 

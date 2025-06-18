@@ -231,3 +231,34 @@ export function dropdownMenuSetup() {
     });
 
 }
+
+
+
+
+
+
+
+
+
+
+export function getStateOfChoiches(list_of_buttons) {
+    // input: a list of dropdown buttons elements
+    // we take all buttons names, all active choices, and see
+    // which one are active at this moment
+    let out_dict = {};
+    list_of_buttons.forEach(button => {
+        const id = button.id;
+        const choiches = dropdownButtonGetAllInnerOptions(button);
+        let active_choices = [];
+        if (choiches) {
+            choiches.forEach(choice_btn => {
+                if (choice_btn.classList.contains('selected')) {
+                    const chn = choice_btn.innerHTML;
+                    active_choices.push(chn);
+                }
+            });
+        } 
+        out_dict[id] = active_choices;
+    });
+    return out_dict;
+}

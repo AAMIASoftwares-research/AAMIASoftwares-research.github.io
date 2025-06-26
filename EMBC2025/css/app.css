@@ -1,0 +1,95 @@
+body {
+    text-align: center;
+    max-width: 15cm;
+    margin: auto;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+div.instructions {
+    font-family: lato;
+    margin: 5px;
+    margin-top: 60px;
+    padding: 5px;
+    background: #d1d1d1;
+    border-radius: 5px;
+}
+
+button.start {
+    margin-top: 30px;
+    padding: 6px 8px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: antiquewhite;
+    background-color: green;
+    border: none;
+    border-radius: 0.5em;
+}
+
+button.start:active {
+    background-color: rgb(20, 80, 20);
+}
+
+
+
+
+
+h1.title {
+    font-family: lato;
+    font-size: 1.5em;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0px 15px;
+}
+
+div.slice-canva {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: aqua; 
+}
+
+div.bullet {
+    position: fixed; 
+    width: 8px; 
+    height: 8px; 
+    border-radius: 10px; 
+    
+    z-index: 10; 
+    transform: translateX(-50%) translateY(-50%);
+}
+div.bullet.right {
+    background: firebrick;
+}
+
+div.bullet.left {
+    background: navy; 
+}
+
+button.action {
+    margin-top: 30px;
+    padding: 6px 8px;
+    min-width: 50%;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: antiquewhite;
+    background-color: rgb(0, 173, 199);
+    border: none;
+    border-radius: 0.3em;
+}
+
+button.action:active {
+    background-color: rgb(0, 137, 158);
+}
+
+button.action:disabled {
+    color: rgb(141, 141, 141);
+    background-color: rgb(209, 209, 209);
+}

@@ -10,9 +10,10 @@
     <script src="./js/app.js" type="module" defer></script>
 </head>
 <body>
-    
 
     <div class="instructions">
+        Hey there thank you for participating!
+        <br>
         You will be showed a picture that is a slice of a CT scan of the heart. 
         Please select where the indicated coronary ostium is.
     </div>
@@ -21,26 +22,17 @@
     </button>
 
 
-    <h1 class="title" style="display: none;">Please select the right coronary ostium.</h1>
+    <h1 class="title hidden">Please select the right coronary ostium</h1>
 
 
-    <div class="slice-canva" style="display: none; width: 100; aspect-ratio: 1; background-color: aqua; max-width: 10cm;">
+    <div class="slice-canva hidden">
 
     </div>
 
-    <div class="bullet" style="
-        position: fixed; 
-        width: 8px; 
-        height: 8px; 
-        border-radius: 10px; 
-        background: firebrick; 
-        z-index: 10; 
-        display:none;
-        transform: translateX(-50%) translateY(-50%);
-    "></div>
+    <div class="bullet right hidden"></div>
 
-    <button class="action" style="display: none;">
-        Save
+    <button class="action hidden">
+        Save Right Ostium Position
     </button>
 
 

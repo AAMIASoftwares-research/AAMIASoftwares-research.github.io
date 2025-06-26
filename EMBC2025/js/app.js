@@ -47,6 +47,7 @@ function appSetup() {
     const picture_div = document.querySelector('div.slice-canva');
     const bullet = document.querySelector('div.bullet');
     const action_button = document.querySelector('button.action');
+    const ty_image = document.querySelector('img.ty');
 
 
     /// START PAGE ///
@@ -142,9 +143,12 @@ function appSetup() {
                 // store answer
                 saveData(save_data);
 
-                // reload page after 5 seconds
-                title.innerHTML = 'Thank you!';
+                // show thank you
+                title.innerHTML = 'Great job!';
                 action_button.classList.add('hidden');
+                ty_image.classList.remove('hidden');
+
+                // reload page after 5 seconds
                 window.setTimeout(
                     function () {
                         window.location.replace('./');

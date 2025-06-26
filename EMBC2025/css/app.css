@@ -93,3 +93,9 @@ button.action:disabled {
     color: rgb(141, 141, 141);
     background-color: rgb(209, 209, 209);
 }
+
+
+img.ty {
+    width: 100%;
+    margin-top: 50px;
+}

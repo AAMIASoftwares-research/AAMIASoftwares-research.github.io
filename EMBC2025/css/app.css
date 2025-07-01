@@ -15,12 +15,19 @@ body {
 
 
 div.instructions {
-    font-family: lato;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 5px;
-    margin-top: 60px;
+    margin-top: 30px;
     padding: 5px;
-    background: #d1d1d1;
     border-radius: 5px;
+    animation: instructionsBlink 8s infinite forwards;
+}
+@keyframes instructionsBlink{
+    0% {background: transparent;}
+    40% {background: transparent;}
+    60% {background: #dcebf9;}
+    90% {background: #dcebf9;}
+    100% {background: transparent;}
 }
 
 button.start {
@@ -28,16 +35,45 @@ button.start {
     padding: 6px 8px;
     font-size: 1.2em;
     font-weight: 600;
-    color: antiquewhite;
     background-color: green;
     border: none;
     border-radius: 0.5em;
+    animation: startBlink 10s infinite forwards;
 }
+@keyframes startBlink {
+    0% {color: white;}
+    95% {color: white;}
+    96% {color: gold;}
+    97% {color: white;}
+    98% {color: gold;}
+    100% {color: white;}
+}
+
 
 button.start:active {
     background-color: rgb(20, 80, 20);
 }
 
+
+div.landing-title > img {
+    width: 90%;
+    padding-top: 20px;
+}
+div.landing-title h1 {
+    font-size: 1.1em;
+}
+div.landing-title p {
+    font-size: 0.9em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #5b6d7d;
+    line-height: 2.5em;
+    margin: 0;
+}
+div.landing-title p img {
+    max-height: 1.5em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 
 
@@ -52,8 +88,11 @@ h1.title {
 
 div.slice-canva {
     width: 100%;
-    aspect-ratio: 1;
     background-color: aqua; 
+}
+div.slice-canva img {
+    width: 100%;
+    display: block;
 }
 
 div.bullet {

@@ -1,3 +1,5 @@
+import { list_of_ids } from "./id_list.js";
+
 
 async function saveData(save_data) {
     const password = 'sw4567890plkj';
@@ -32,7 +34,6 @@ async function saveData(save_data) {
 
 
 
-
 function appSetup() {
     
     console.log('Starting app setup.')
@@ -42,20 +43,39 @@ function appSetup() {
     const start_button = document.querySelector('button.start');
     const instructions = document.querySelector('div.instructions');
     
-    
+    const landing = document.querySelector('div.landing-title');
     const title = document.querySelector('h1.title');
     const picture_div = document.querySelector('div.slice-canva');
     const bullet = document.querySelector('div.bullet');
     const action_button = document.querySelector('button.action');
     const ty_image = document.querySelector('img.ty');
 
+    var save_data = {
+        'image_id': '',
+        'right (percentLeft, percentTop)': [],
+        'left (percentLeft, percentTop)': [],
+    }
 
     /// START PAGE ///
     
     start_button.addEventListener('click', function (event) {
         // hide button and instructions
+        landing.classList.add('hidden');
         start_button.classList.add('hidden');
         instructions.classList.add('hidden');
+
+        // randomly choose an image id
+        const randomIndex = Math.floor(Math.random() * list_of_ids.length);
+        const imageId = list_of_ids[randomIndex];
+        save_data['image_id'] = imageId;
+
+        // set the first picture (right ostium)
+        const img = picture_div.querySelector('img');
+        if (img) {
+            img.src = `./images/${imageId}-right.png`;
+        } else {
+            console.log('error: image not found')
+        }
         
         // show the other elements
         title.classList.remove('hidden');
@@ -82,11 +102,6 @@ function appSetup() {
         action_button.disabled = false;
     });
 
-    var save_data = {
-        'image_id': '',
-        'right (percentLeft, percentTop)': [],
-        'left (percentLeft, percentTop)': [],
-    }
 
     action_button.addEventListener('click', function (event) {
         
@@ -112,6 +127,13 @@ function appSetup() {
                 // Change title
                 title.innerHTML = 'Please select the left coronary ostium';
                 // load next image
+                const imageId = save_data['image_id'];
+                const img = picture_div.querySelector('img');
+                if (img) {
+                    img.src = `./images/${imageId}-left.png`;
+                } else {
+                    console.log('error: image not found')
+                }
 
                 // hide bullet and change color to blue
                 bullet.classList.add('hidden');
@@ -132,7 +154,7 @@ function appSetup() {
                 // hide bullet
                 bullet.classList.add('hidden');
                 // change title
-                title.innerHTML = 'Click the button below to submit your answer';
+                title.innerHTML = 'Click the button below to submit your answer<br>If you\'re not happy with your choice, reload the page';
                 // change action button
                 action_button.innerHTML = 'SUBMIT';
                 // change state
@@ -153,7 +175,7 @@ function appSetup() {
                     function () {
                         window.location.replace('./');
                     },
-                    5000
+                    2000
                 )
                 break;
         }

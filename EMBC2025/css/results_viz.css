@@ -1,5 +1,5 @@
 body {
-    max-width: 25cm;
+    max-width: 20cm;
     margin: auto;
     padding-top: 20px;
     
@@ -13,7 +13,6 @@ body {
 div.left,
 div.right {
     width: 95%;
-    aspect-ratio: 2.0;
     background-color: rgb(235, 235, 235);
     padding: 20px;
     border-radius: 10px;

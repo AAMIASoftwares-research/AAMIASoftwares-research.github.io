@@ -6,7 +6,7 @@ import { list_of_ids } from "./id_list.js";
  */
 async function getSavedData(regex_filter = undefined) {
     try {
-        const retrieveUrl = `http://shapire.altervista.org/EMBC2025/get_data.php`;
+        const retrieveUrl = `https://shapire.altervista.org/EMBC2025/get_data.php`;
         const response = await fetch(
             retrieveUrl, 
             {

@@ -3,7 +3,7 @@ import { list_of_ids } from "./id_list.js";
 
 async function saveData(save_data) {
     const password = 'sw4567890plkj';
-    const server_url = 'http://shapire.altervista.org/EMBC2025/save_data.php';
+    const server_url = 'https://shapire.altervista.org/EMBC2025/save_data.php';
     // This code is on my shapire server
 
     try {

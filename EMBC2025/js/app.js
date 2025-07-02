@@ -23,8 +23,6 @@ async function saveData(save_data) {
         if (! response.ok)
             console.error('Error saving data');
 
-        console.log(result);
-
     } catch (error) {
         console.error('Network error or problem with request:', error);
     }
@@ -42,6 +40,7 @@ function appSetup() {
 
     const start_button = document.querySelector('button.start');
     const instructions = document.querySelector('div.instructions');
+    const example = document.querySelector('div.example');
     
     const landing = document.querySelector('div.landing-title');
     const title = document.querySelector('h1.title');
@@ -59,35 +58,53 @@ function appSetup() {
     /// START PAGE ///
     
     start_button.addEventListener('click', function (event) {
-        // hide button and instructions
-        landing.classList.add('hidden');
-        start_button.classList.add('hidden');
-        instructions.classList.add('hidden');
 
-        // randomly choose an image id
-        const randomIndex = Math.floor(Math.random() * list_of_ids.length);
-        const imageId = list_of_ids[randomIndex];
-        save_data['image_id'] = imageId;
+        switch (start_button.innerHTML.trim()) {
+            case 'Go to Example':
+                // hide button and instructions
+                landing.classList.add('hidden');
+                instructions.classList.add('hidden');
+                // show example
+                example.classList.remove('hidden');
+                start_button.innerHTML = 'Let\'s Start!';
+                break;
+            case 'Let\'s Start!':
+                // Hide current elements
+                example.classList.add('hidden');
+                start_button.classList.add('hidden');
 
-        // set the first picture (right ostium)
-        const img = picture_div.querySelector('img');
-        if (img) {
-            img.src = `./images/${imageId}-right.png`;
-        } else {
-            console.log('error: image not found')
+                // randomly choose an image id
+                const randomIndex = Math.floor(Math.random() * list_of_ids.length);
+                const imageId = list_of_ids[randomIndex];
+                save_data['image_id'] = imageId;
+
+                // set the first picture (right ostium)
+                const img = picture_div.querySelector('img');
+                if (img) {
+                    img.src = `./images/${imageId}-right.png`;
+                } else {
+                    console.log('error: image not found')
+                }
+                
+                // show the other elements
+                title.classList.remove('hidden');
+                picture_div.classList.remove('hidden');
+                bullet.classList.add('hidden');
+                action_button.classList.remove('hidden');
+
+                // set save button to inactive
+                action_button.disabled = true;
+
+                // advance state
+                state = 'right';
+                break;
+            default:
+                console.error('Start button is stuck!')
+                break;
         }
         
-        // show the other elements
-        title.classList.remove('hidden');
-        picture_div.classList.remove('hidden');
-        bullet.classList.add('hidden');
-        action_button.classList.remove('hidden');
 
-        // set save button to inactive
-        action_button.disabled = true;
-
-        // advance state
-        state = 'right';
+        
     });
 
     /// BULLET SELECTION and SAVE ///

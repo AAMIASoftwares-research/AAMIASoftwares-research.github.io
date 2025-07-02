@@ -171,7 +171,7 @@ function appSetup() {
                 // hide bullet
                 bullet.classList.add('hidden');
                 // change title
-                title.innerHTML = 'Click the button below to submit your answer<br>If you\'re not happy with your choice, reload the page';
+                title.innerHTML = 'Click the button below to submit your answer<br>You can still try again without submitting by reloading the page';
                 // change action button
                 action_button.innerHTML = 'SUBMIT';
                 // change state
@@ -183,7 +183,7 @@ function appSetup() {
                 saveData(save_data);
 
                 // show thank you
-                title.innerHTML = 'Great job!';
+                title.innerHTML = 'Great job!<br><br>Try again soon';
                 action_button.classList.add('hidden');
                 ty_image.classList.remove('hidden');
 
@@ -192,7 +192,7 @@ function appSetup() {
                     function () {
                         window.location.replace('./');
                     },
-                    2000
+                    3141
                 )
                 break;
         }

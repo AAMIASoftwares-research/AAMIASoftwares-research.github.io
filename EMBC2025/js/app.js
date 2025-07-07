@@ -30,6 +30,11 @@ async function saveData(save_data) {
 
 }
 
+function scrollToTopDelayed(delayMs = 100) {
+    setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }, delayMs);
+}
 
 
 function appSetup() {
@@ -56,6 +61,8 @@ function appSetup() {
         'left (percentLeft, percentTop)': [],
     }
 
+    scrollToTopDelayed(10);
+
     /// START PAGE ///
     
     start_button.addEventListener('click', function (event) {
@@ -67,6 +74,7 @@ function appSetup() {
                 // show example
                 example.classList.remove('hidden');
                 start_button.innerHTML = 'Let\'s Start!';
+                scrollToTopDelayed();
                 break;
             case 'Let\'s Start!':
                 // Hide current elements
@@ -96,6 +104,9 @@ function appSetup() {
                 example_live.classList.remove('hidden');
                 example_live.children[0].classList.remove('hidden');
                 example_live.children[1].classList.remove('hidden');
+
+                // scroll to top
+                scrollToTopDelayed();
 
                 // set save button to inactive
                 action_button.disabled = true;
@@ -149,6 +160,9 @@ function appSetup() {
         // left and top are already relative to picture_div
         const percentLeft = ((left / divWidth) * 100).toFixed(3);
         const percentTop = ((top / divHeight) * 100).toFixed(3);
+
+        // scroll to top
+        scrollToTopDelayed();
 
         switch (state) {
             case 'right':

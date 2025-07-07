@@ -41,6 +41,7 @@ function appSetup() {
     const start_button = document.querySelector('button.start');
     const instructions = document.querySelector('div.instructions');
     const example = document.querySelector('div.example');
+    const example_live = document.querySelector('div.example-live');
     
     const landing = document.querySelector('div.landing-title');
     const title = document.querySelector('h1.title');
@@ -58,7 +59,6 @@ function appSetup() {
     /// START PAGE ///
     
     start_button.addEventListener('click', function (event) {
-
         switch (start_button.innerHTML.trim()) {
             case 'Go to Example':
                 // hide button and instructions
@@ -92,6 +92,11 @@ function appSetup() {
                 bullet.classList.add('hidden');
                 action_button.classList.remove('hidden');
 
+                // show example
+                example_live.classList.remove('hidden');
+                example_live.children[0].classList.remove('hidden');
+                example_live.children[1].classList.remove('hidden');
+
                 // set save button to inactive
                 action_button.disabled = true;
 
@@ -112,8 +117,21 @@ function appSetup() {
     
     picture_div.addEventListener('click', function (event) {
         bullet.classList.remove('hidden');
-        bullet.style.top = event.pageY + 'px';
-        bullet.style.left = event.pageX + 'px';
+       
+        // Get the bounding rectangle of the picture_div relative to the document
+        const rect = picture_div.getBoundingClientRect();
+        const docLeft = rect.left + window.scrollX;
+        const docTop = rect.top + window.scrollY;
+
+        // Calculate the position relative to the picture_div, accounting for scroll
+        const left = event.pageX - docLeft;
+        const top = event.pageY - docTop;
+        bullet.style.left = left + 'px';
+        bullet.style.top = top + 'px';
+
+        // Store the relative position so the bullet
+        bullet.dataset.relLeft = left;
+        bullet.dataset.relTop = top;
 
         // set save button to active since  apoint was placed
         action_button.disabled = false;
@@ -122,25 +140,27 @@ function appSetup() {
 
     action_button.addEventListener('click', function (event) {
         
-        const left = parseInt(bullet.style.left, 10);
-        const top = parseInt(bullet.style.top, 10);
-
+        const left = parseFloat(bullet.style.left);
+        const top = parseFloat(bullet.style.top);
         const rect = picture_div.getBoundingClientRect();
-        const divLeft = rect.left + window.scrollX;
-        const divTop = rect.top + window.scrollY;
         const divWidth = rect.width;
         const divHeight = rect.height;
 
-        const relX = left - divLeft;
-        const relY = top - divTop;
-
-        const percentLeft = ((relX / divWidth) * 100).toFixed(3);
-        const percentTop = ((relY / divHeight) * 100).toFixed(3);
+        // left and top are already relative to picture_div
+        const percentLeft = ((left / divWidth) * 100).toFixed(3);
+        const percentTop = ((top / divHeight) * 100).toFixed(3);
 
         switch (state) {
             case 'right':
                 // save right ostium position
                 save_data['right (percentLeft, percentTop)'] = [percentLeft, percentTop]
+                
+                // Change example
+                example_live.children[0].classList.add('hidden');
+                example_live.children[1].classList.add('hidden');
+                example_live.children[2].classList.remove('hidden');
+                example_live.children[3].classList.remove('hidden');
+
                 // Change title
                 title.innerHTML = 'Please select the left coronary ostium';
                 // load next image
@@ -166,6 +186,8 @@ function appSetup() {
             case 'left':
                 // save left ostium position
                 save_data['left (percentLeft, percentTop)'] = [percentLeft, percentTop]
+                // hide example
+                example_live.classList.add('hidden');
                 // hide image div
                 picture_div.classList.add('hidden');
                 // hide bullet
